@@ -1,5 +1,5 @@
 // Warehouse inventory module.
-//
+
 // Functional rules:
 //  - restock(stock, deliveries): adds delivered quantities to stock.
 //      stock      = { sku: quantity, ... }
@@ -65,3 +65,6 @@ function findDuplicateSkus(items) {
 }
 
 module.exports = { restock, pick, findDuplicateSkus };
+
+
+
