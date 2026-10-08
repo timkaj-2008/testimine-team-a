@@ -14,3 +14,5 @@ Run these cases from the repository root with `npx jest inventory`. Each row poi
 | TC-08 | REQ-08 | Reliability / High | Stock contains `A-1: 5`. | Restock once with a valid delivery followed by a zero-quantity delivery; also try picking more than is available. | Each invalid operation throws, and the original stock remains unchanged. | `REQ-08 failed restock leaves original stock unchanged after a prior valid delivery`; `REQ-08 failed pick leaves original stock unchanged` |
 
 For TC-06, the reported run processed 20,000 items in 4 ms. Run the case again in the review environment if you need to confirm its timing there.
+
+
