@@ -19,7 +19,7 @@
 //  - sku must be a string of 1–20 characters: letters, digits, dash only.
 //    Anything else → throws an Error (prevents injection into downstream systems).
 
-const SKU_PATTERN = /^[A-Za-z0-9-]{1,20}$/;
+const SKU_PATTERN = /^[A-Za-z0-9-]{1,20}(?![\s\S])/;
 
 function assertSku(sku) {
   if (typeof sku !== 'string' || !SKU_PATTERN.test(sku)) {
@@ -53,15 +53,15 @@ function pick(stock, sku, qty) {
 }
 
 function findDuplicateSkus(items) {
-  const duplicates = [];
-  for (let i = 0; i < items.length; i++) {
-    for (let j = i + 1; j < items.length; j++) {
-      if (items[i].sku === items[j].sku && !duplicates.includes(items[i].sku)) {
-        duplicates.push(items[i].sku);
-      }
+  const seen = new Set();
+  const duplicates = new Set();
+  for (const item of items) {
+    if (seen.has(item.sku)) {
+      duplicates.add(item.sku);
     }
+    seen.add(item.sku);
   }
-  return duplicates;
+  return [...duplicates];
 }
 
 module.exports = { restock, pick, findDuplicateSkus };
