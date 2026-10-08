@@ -48,6 +48,8 @@ We applied each mutation to `inventory.js` separately, ran the relevant Jest tes
 
 Run the inventory tests from the repository root with `npx jest inventory`. To check coverage, use `npx jest inventory --coverage`. The reported run passed all 27 tests and showed 100% statement, branch, function, and line coverage. REQ-06 took 4 ms in that run. The exact Node.js version was not recorded.
 
+
+
 ## People and review
 
 Team A prepares the tests and documents. Team E reviews Team A's pull request. Team A reviews Team B's pull request.
