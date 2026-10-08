@@ -14,3 +14,5 @@ The table maps each requirement to its test case and Jest test name. All results
 | REQ-08 | Reliability | TC-08 | `REQ-08 failed restock leaves original stock unchanged after a prior valid delivery`; `REQ-08 failed pick leaves original stock unchanged` | PASS |
 
 All eight requirements are covered. The run passed 27 of 27 tests. Coverage for `inventory.js` was 100% for statements, branches, functions, and lines, with no uncovered lines.
+
+
