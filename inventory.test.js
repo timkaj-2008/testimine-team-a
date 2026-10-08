@@ -81,12 +81,15 @@ test.each([
   expect(() => restock({}, [{ sku, qty: 1 }])).toThrow('invalid sku');
 });
 
+
+
 test.each([
   ['A-1', 'valid sku'],
   ['12345678901234567890', '20 characters'],
 ])('REQ-07 restock accepts valid sku (%s: %s)', (sku) => {
   expect(restock({}, [{ sku, qty: 1 }])).toEqual({ [sku]: 1 });
 });
+
 
 // Reliability tests
 test('REQ-08 failed restock leaves original stock unchanged after a prior valid delivery', () => {
@@ -98,8 +101,10 @@ test('REQ-08 failed restock leaves original stock unchanged after a prior valid 
   expect(stock).toEqual({ 'A-1': 5 });
 });
 
+
 test('REQ-08 failed pick leaves original stock unchanged', () => {
   const stock = { 'A-1': 5 };
   expect(() => pick(stock, 'A-1', 6)).toThrow();
   expect(stock).toEqual({ 'A-1': 5 });
 });
+
